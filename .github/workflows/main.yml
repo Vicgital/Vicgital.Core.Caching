@@ -1,36 +1,32 @@
-# This is a basic workflow to help you get started with Actions
+name: Vicgital.Core.Caching
 
-name: CI
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+env:
+  GH_PACKAGE_USERNAME: ${{ secrets.GH_PACKAGE_USERNAME }}
+  GH_PACKAGE_TOKEN: ${{ secrets.GH_PACKAGE_TOKEN }}
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  publish:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    permissions:
+      packages: write
+      contents: read
+    strategy:
+      matrix:
+        startupProject:
+          - "src/Vicgital.Core.Caching/Vicgital.Core.Caching.csproj"
+          - "src/Vicgital.Core.Caching.InMemory/Vicgital.Core.Caching.InMemory.csproj"
+          - "src/Vicgital.Core.Caching.Redis/Vicgital.Core.Caching.Redis.csproj"
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+      - name: Publish Nuget Package
+        uses: vicgital/cicd/actions/dotnetNugetPublish@main
+        with:
+          startupProject: ${{ matrix.startupProject }}
+          githubPublishPackageToken: ${{ secrets.GITHUB_TOKEN }}

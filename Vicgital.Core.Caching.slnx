@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/.deployment/">
+    <File Path=".github/workflows/main.yml" />
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/Vicgital.Core.Caching.InMemory/Vicgital.Core.Caching.InMemory.csproj" />
+    <Project Path="src/Vicgital.Core.Caching.Redis/Vicgital.Core.Caching.Redis.csproj" />
+    <Project Path="src/Vicgital.Core.Caching/Vicgital.Core.Caching.csproj" />
+  </Folder>
+  <Folder Name="/test/" />
+</Solution>

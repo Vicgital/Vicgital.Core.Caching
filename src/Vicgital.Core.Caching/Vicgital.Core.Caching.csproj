@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFramework>net10.0</TargetFramework>
+	  <AssemblyName>Vicgital.Core.Caching</AssemblyName>
+	  <PackageId>Vicgital.Core.Caching</PackageId>
+	  <Version>1.0.0</Version>
+	  <Authors>Vicgital</Authors>
+	  <RepositoryUrl>https://github.com/vicgital/Vicgital.Core.Caching</RepositoryUrl>
+	  <RepositoryType>git</RepositoryType>
+	  <PackageDescription>Core caching abstractions for Vicgital services: ICacheService and CacheEntryOptions. Provider-agnostic contract shared by Vicgital.Core.Caching.InMemory and Vicgital.Core.Caching.Redis; depend on this package alone to write cache-consuming code that stays swappable between backends.</PackageDescription>
+	  <ImplicitUsings>enable</ImplicitUsings>
+	  <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>

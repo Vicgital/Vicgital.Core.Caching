@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFramework>net10.0</TargetFramework>
+	  <AssemblyName>Vicgital.Core.Caching.InMemory</AssemblyName>
+	  <PackageId>Vicgital.Core.Caching.InMemory</PackageId>
+	  <Version>1.0.0</Version>
+	  <Authors>Vicgital</Authors>
+	  <RepositoryUrl>https://github.com/vicgital/Vicgital.Core.Caching</RepositoryUrl>
+	  <RepositoryType>git</RepositoryType>
+	  <PackageDescription>In-process ICacheService implementation for Vicgital.Core.Caching, backed by Microsoft.Extensions.Caching.Memory. Ideal for single-instance services or local development; call AddVicgitalInMemoryCaching() to register it. For state shared across multiple instances, use Vicgital.Core.Caching.Redis instead.</PackageDescription>
+	  <ImplicitUsings>enable</ImplicitUsings>
+	  <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="10.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Vicgital.Core.Caching\Vicgital.Core.Caching.csproj" />
+  </ItemGroup>
+
+</Project>

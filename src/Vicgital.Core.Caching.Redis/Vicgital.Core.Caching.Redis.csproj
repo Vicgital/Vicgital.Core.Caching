@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFramework>net10.0</TargetFramework>
+	  <AssemblyName>Vicgital.Core.Caching.Redis</AssemblyName>
+	  <PackageId>Vicgital.Core.Caching.Redis</PackageId>
+	  <Version>1.0.0</Version>
+	  <Authors>Vicgital</Authors>
+	  <RepositoryUrl>https://github.com/vicgital/Vicgital.Core.Caching</RepositoryUrl>
+	  <RepositoryType>git</RepositoryType>
+	  <PackageDescription>Redis-backed ICacheService implementation for Vicgital.Core.Caching, built on StackExchange.Redis. Supports absolute and sliding expiration, prefix-based invalidation, and a distributed lock in GetOrCreateAsync to prevent cache-stampede across instances sharing the same Redis store. Register via AddVicgitalRedisCaching().</PackageDescription>
+	  <ImplicitUsings>enable</ImplicitUsings>
+	  <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Vicgital.Core.Caching\Vicgital.Core.Caching.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="StackExchange.Redis" Version="3.1.0" />
+  </ItemGroup>
+
+</Project>
